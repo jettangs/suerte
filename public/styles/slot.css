@@ -1,0 +1,17 @@
+#mylegend {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+  	width:100%;
+  	height:auto;
+    overflow: visible;
+    -webkit-transform: translateZ(0);
+    z-index: 0;
+}
+
+#mylegend_canvas {
+    margin: 0px 0px 0px 268px;
+    padding: 0px;
+    width: 320px;
+    height: 320px;
+}
