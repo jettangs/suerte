@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;padding:0;
+        }
+        body{
+            width:100%;height:100%;background:black;
+        }
+        canvas{
+            width:800px;height:480px;outline:1px solid pink;position:absolute;
+            left:0;top:0;right:0;bottom:0;margin:auto;
+        }
+    </style>
+</head>
+<body>
+    <button>240x120</button>
+    <button>320x240</button>
+    <button>480x320</button>
+    <button>640x420</button>
+    <button>800x480</button>
+    <canvas id="canvasId" width="480" height="320">
+        Your browser does not support the canvas element.
+    </canvas>
+    <script>
+        var canvas = document.getElementById('canvasId');
+        var context = canvas.getContext('2d');
+        var btns = document.getElementsByTagName('button');
+        var resolution = [
+            [240, 120],
+            [320, 240],
+            [480, 320],
+            [640, 420],
+            [800, 480]
+        ];
+        //canvas分辨率
+        var resolutionW = canvas.getAttribute('width');
+        var resolutionH = canvas.getAttribute('height');
+        //canvas大小
+        var sizeW = canvas.offsetWidth;
+        var sizeH = canvas.offsetHeight;
+        console.log(resolutionW);
+        console.log(resolutionH);
+        console.log(sizeW);
+        console.log(sizeH);
+        var img = new Image();
+        img.src = "http://img5.niutuku.com/phone/1301/0920/0920-niutuku.com-483082.jpg"; //这张图片像素为800x480
+        img.onload = function() {
+            draw(3);
+            for (var i = 0; i < btns.length; i++) {
+                (function(i) {
+                    btns[i].onclick = function() {
+                        draw(i);
+                    }
+                })(i);
+            }
+        }
+
+        function draw(i) {
+            canvas.setAttribute('width', resolution[i][0]);
+            canvas.setAttribute('height', resolution[i][1]);
+            context.clearRect(0, 0, sizeW, sizeH);
+            context.drawImage(img, 0, 0, sizeW, sizeH, 0, 0, resolution[i][0], resolution[i][1]);
+        }
+    </script>
+</body>
+</html>

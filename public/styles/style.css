@@ -1,4 +1,13 @@
-#mylegend {
+#launch img{
+    width: 100%;
+    height:auto;
+    position:absolute;
+    left:0;
+    top:0;
+    z-index: -1;
+}
+
+#suerte {
     position: absolute;
     margin: 0;
     padding: 0;
@@ -9,9 +18,8 @@
     z-index: 0;
 }
 
-#mylegend_canvas {
-    margin: 0px 0px 0px 268px;
+#suerte_canvas {
+    margin: 0px;
     padding: 0px;
-    width: 320px;
-    height: 320px;
 }
+
